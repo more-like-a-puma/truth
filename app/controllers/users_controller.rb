@@ -13,6 +13,7 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
+    @user = User.find params[:id]
   end
 
   # GET /users/new
@@ -29,17 +30,17 @@ class UsersController < ApplicationController
   # POST /users.json
   def create
     if params[:user]['image'].present?
-      req = Cloudinary::Uploader.upload(params[:user]['image'])
-      @user = User.new(user_params)
-      @user.update :image => req['url']
+      cloudinary = Cloudinary::Uploader.upload params[:file], :angle => :exif
+      @user = User.new user_params
+      @user.image = cloudinary['url']
     else
-      @user = User.new(user_params)
-      @user.update :image => 'http://www.priorlakeassociation.org/wp-content/uploads/2011/06/blank-profile.png'
+      @user = User.new user_params
+      @user.image = 'http://i1125.photobucket.com/albums/l586/Elaguilfor/Elayudantedesanta.png'
     end
 
     if @user.save
       new_user = {id: @user.id,
-                  name: @user.first + ' ' + @user.last[0],
+                  name: @user.name[0],
                   image: @user.image}
       WebsocketRails[:user_create].trigger('created_user', new_user)
       session[:user_id] = @user.id
@@ -62,11 +63,11 @@ class UsersController < ApplicationController
   # PATCH/PUT /users/1
   # PATCH/PUT /users/1.json
   def update
-    user = @current_user
+    user = User.find params[:id]
     user.update user_params
     if params[:user]["image"].present?
-      req = Cloudinary::Uploader.upload(params[:user]["image"])
-      user.update(:image => req["url"])
+      cloudinary = Cloudinary::Uploader.upload params[:file], :angle => :exif
+      user.image = cloudinary["url"] if cloudinary
     end
 
     respond_to do |format|
