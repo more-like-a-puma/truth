@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get 'pages/home'
+  root :to => 'pages#home'
 
   resources :groups
   resources :messages
@@ -8,5 +8,5 @@ Rails.application.routes.draw do
   get '/login' => 'session#new', :as => 'login'
   post '/login' => 'session#create'
   delete '/login' => 'session#destroy', :as => 'logout'
-  
+
   end

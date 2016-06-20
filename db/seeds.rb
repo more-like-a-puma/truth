@@ -11,11 +11,14 @@ User.destroy_all
 
 u1 = User.create :name => 'Small Jess', :email => 'jess@ga.co', :password => 'chicken', :password_confirmation => 'chicken', :admin => true
 
-u2 = User.create :name =>  'boz', :email => 'boz@ga.co', :password => 'chicken', :password_confirmation => 'chicken', :admin => true
+u2 = User.create :name => 'boz', :email => 'boz@ga.co', :password => 'chicken', :password_confirmation => 'chicken', :admin => true
 
-u3 = User.create :name =>  'Simone', :email => 'simone@ga.co', :password => 'chicken', :password_confirmation => 'chicken', :admin => true
+u3 = User.create :name => 'Simone', :email => 'simone@ga.co', :password => 'chicken', :password_confirmation => 'chicken', :admin => true
 
-u4 = User.create :name =>  'Tall Jess', :email => 'simone@ga.co', :password => 'chicken', :password_confirmation => 'chicken', :admin => true
+u4 = User.create :name => 'Tall Jess', :email => 'tjess@ga.co', :password => 'chicken', :password_confirmation => 'chicken', :admin => true
+
+u5 = User.create :name => 'Wolf', :email => 'wolf@ga.co', :password => 'chicken', :password_confirmation => 'chicken',
+:admin => false
 
 Group.destroy_all
 
