@@ -31,6 +31,8 @@ m5 = Message.create :content => "SEEEEEEEEEEDS"
 
 g1.users << u1 << u2 << u3 << u4
 puts "Group one user count: #{g1.users.count}"
+g1.messages << m1 << m2 << m3 << m4 << m5
+puts "Group one messages count: #{g1.messages.count}"
 
 u1.messages << m1
 u1.messages << m5

@@ -1,4 +1,5 @@
 class MessagesController < ApplicationController
+  before_action :authenticate
   before_action :set_message, only: [:show, :edit, :update, :destroy]
 
   # GET /messages
@@ -70,5 +71,10 @@ class MessagesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def message_params
       params.require(:message).permit(:user_id, :group_id, :content, :image, :typing)
+    end
+
+    # Check user is logged in
+    def authenticate
+      redirect_to '/login' unless @current_user
     end
 end
