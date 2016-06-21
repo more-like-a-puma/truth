@@ -3,7 +3,7 @@ var app = app || {};
 app.AppRouter = Backbone.Router.extend({
   routes: {
     '': 'index',
-    'messages/:id': 'showMessages'
+    'messages/:id': 'showMessage'
   },
 
   index: function () {

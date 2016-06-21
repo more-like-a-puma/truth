@@ -4,9 +4,10 @@ app.MessageView = Backbone.View.extend({
   tagName: 'li',
   render: function () {
 
-    var content = this.model.get("content");
+    var messageContent = this.model.get("content");
+    var name = this.model.get("name");
 
-    this.$el.text( content );
+    this.$el.text( name + " : " + messageContent );
     this.$el.prependTo( "#messages" );
-  } 
+  }
 });

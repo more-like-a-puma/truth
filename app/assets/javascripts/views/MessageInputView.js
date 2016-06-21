@@ -1,6 +1,8 @@
 var app = app || {};
 
 app.MessageInputView = Backbone.View.extend({
+  el: "#messageForm",
+
   events: {
     'click button': 'createMessage',
     'keydown textarea': 'checkForEnter'
@@ -20,19 +22,22 @@ app.MessageInputView = Backbone.View.extend({
     var message = new app.Message();
 
     var userContent = this.$el.find("textarea").val();
+    var userName = this.$el.find("name").val();
+
     message.set({
-      content: userContent
+      content: userContent,
+      name: userName
     });
+
     message.save();
     app.messages.add( message );
     this.$el.find("textarea").val('').focus();
   },
 
-  el: "#messageForm",
-
   render: function () {
 
     var messageInputViewTemplate = $("#messageInputViewTemplate").html();
+
     this.$el.html( messageInputViewTemplate );
   }
 

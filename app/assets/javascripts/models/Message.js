@@ -4,6 +4,7 @@ app.Message = Backbone.Model.extend({
   urlRoot: "/messages",
 
   defaults: {
+    name: "Jessica",
     content: "",
     image: "",
     typing: ""
