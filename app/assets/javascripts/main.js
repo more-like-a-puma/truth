@@ -10,7 +10,7 @@ $(document).ready(function () {
 
   app.messages.fetch();
 
-  window.setInterval(function () {
-    app.messages.fetch();
-  }, 4000);
+  // window.setInterval(function () {
+  //   app.messages.fetch();
+  // }, 4000);
 });
