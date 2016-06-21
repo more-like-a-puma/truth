@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+gem 'thin'
+
 gem 'websocket-rails'
 
 gem 'faye-websocket', '0.10.0'
