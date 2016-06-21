@@ -25,11 +25,7 @@
   </div>
   <div class="field">
     <%= f.label :image %><br>
-    <%= f.text_area :image %>
-  </div>
-  <div class="field">
-    <%= f.label :typing %><br>
-    <%= f.text_area :typing %>
+    <%= cl_image_upload_tag :image, :required => false %>
   </div>
   <div class="actions">
     <%= f.submit %>
