@@ -22,11 +22,13 @@ app.MessageInputView = Backbone.View.extend({
     var message = new app.Message();
 
     var userContent = this.$el.find("textarea").val();
-    var userName = $("#name").text().trim();
+    // var user_id = ;
 // debugger;
     message.set({
       content: userContent,
-      name: userName
+      user: {
+          name: $("#user_name").val()
+      }
     });
 
     message.save();

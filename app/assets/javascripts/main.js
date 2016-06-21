@@ -12,5 +12,5 @@ $(document).ready(function () {
 
   window.setInterval(function () {
     app.messages.fetch();
-  }, 8000);
+  }, 4000);
 });
