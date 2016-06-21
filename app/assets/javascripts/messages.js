@@ -19,6 +19,7 @@ $(document).ready(function () {
 
   //gets own userID on page refresh
   dispatcher.bind('user_id', function (id) {
+    console.log( "hi" + id );
     msgVars.userID = id;
   });
 

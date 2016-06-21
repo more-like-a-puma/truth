@@ -21,3 +21,11 @@
 //= require_tree ./routers
 //= require_tree .
 //= require websocket_rails/main
+
+
+$(function() {
+  var faye = new Faye.Client('http://localhost:9292/faye');
+  faye.subscribe('/messages/new', function (data) {
+    app.messages.add(data);
+  });
+});
