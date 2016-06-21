@@ -25,13 +25,13 @@ app.MessageInputView = Backbone.View.extend({
 // debugger;
     message.set({
       content: userContent,
+      user_id: 10,
       user: {
           name: $("#user_name").val()
       }
     });
 
     message.save();
-    app.messages.add( message );
     this.$el.find("textarea").val('').focus();
   },
 
