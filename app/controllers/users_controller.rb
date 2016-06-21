@@ -38,19 +38,20 @@ class UsersController < ApplicationController
       @user.image = 'http://i1125.photobucket.com/albums/l586/Elaguilfor/Elayudantedesanta.png'
     end
 
-    if @user.save
-      new_user = {id: @user.id,
-                  name: @user.name[0],
-                  image: @user.image}
-      WebsocketRails[:user_create].trigger('created_user', new_user)
-      session[:user_id] = @user.id
-      redirect_to messages_path
-    else
-      render :new
-    end
+    # if @user.save
+    #   session[:user_id] = @user.id
+    #   redirect_to messages_path
+    # else
+    #   render :new
+    # end
 
     respond_to do |format|
       if @user.save
+        session[:user_id] = @user.id
+        new_user = {id: @user.id,
+                    name: @user.name[0],
+                    image: @user.image}
+        WebsocketRails[:user_create].trigger('created_user', new_user)
         format.html { redirect_to @user, notice: 'User was successfully created.' }
         format.json { render :show, status: :created, location: @user }
       else
