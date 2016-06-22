@@ -25,7 +25,8 @@ app.MessageInputView = Backbone.View.extend({
 // debugger;
     message.set({
       content: userContent,
-      user_id: 10,
+      user_id: $("#user_id").val(),
+      group_id: $("#user_target").val(),
       user: {
           name: $("#user_name").val()
       }

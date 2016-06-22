@@ -22,10 +22,12 @@
 //= require_tree .
 //= require websocket_rails/main
 
-
 $(function() {
+  var userTarget = $("#user_target").val()
+  var curChannel = '/messages/new/' + userTarget
+
   var faye = new Faye.Client('http://localhost:9292/faye');
-  faye.subscribe('/messages/new', function (data) {
+  faye.subscribe(curChannel, function (data) {
     app.messages.add(data);
   });
 });

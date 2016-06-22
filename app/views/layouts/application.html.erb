@@ -11,6 +11,12 @@
     <p>Signed in as <span id="name"><%= @current_user.name %> </span><%= link_to "(logout)", logout_path, :method => :delete %></p>
   <% end %>
 
+  <% if @groups %>
+    <% @groups.each do |g| %>
+      <%= link_to g.title, user_path(@current_user, :user => {:target => g.id}), :method => :put %>
+    <% end %>
+  <% end %>
+
 <%= yield %>
 
 </body>

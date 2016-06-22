@@ -23,6 +23,7 @@ u5 = User.create :name => 'Wolf', :email => 'wolf@ga.co', :password => 'chicken'
 Group.destroy_all
 
 g1 = Group.create :title => 'Truth Patrol'
+g2 = Group.create :title => 'lortaP hturT'
 
 Message.destroy_all
 
@@ -32,17 +33,21 @@ m3 = Message.create :content => "Hello World*"
 m4 = Message.create :content => "This is a message"
 m5 = Message.create :content => "SEEEEEEEEEEDS"
 
-g1.users << u1 << u2 << u3 << u4
-puts "Group one user count: #{g1.users.count}"
-g1.messages << m1 << m2 << m3 << m4 << m5
-puts "Group one messages count: #{g1.messages.count}"
+g1.users << u1 << u2
+g2.users << u3 << u4
+g1.messages << m1 << m2 << m3 << m4
+g2.messages << m5
 
 u1.messages << m1
 u1.messages << m5
-puts "User one message count: #{u1.messages.count}"
 u2.messages << m2
-puts "User two message count: #{u2.messages.count}"
 u3.messages << m3
-puts "User three message count: #{u3.messages.count}"
 u4.messages << m4
+
+puts "Group one user count: #{g1.users.count}"
+puts "Group two user count: #{g2.users.count}"
+puts "Group one messages count: #{g1.messages.count}"
+puts "User one message count: #{u1.messages.count}"
+puts "User two message count: #{u2.messages.count}"
+puts "User three message count: #{u3.messages.count}"
 puts "User four message count: #{u4.messages.count}"

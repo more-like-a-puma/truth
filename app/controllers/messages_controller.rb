@@ -22,6 +22,10 @@ class MessagesController < ApplicationController
   def edit
   end
 
+  def home
+    @groups = Group.all
+  end
+
   # POST /messages
   # POST /messages.json
   def create
@@ -32,11 +36,12 @@ class MessagesController < ApplicationController
       if @message.save
         message = JSON.parse @message.to_json
         message[:user] = @message.user
-        message[:what] = "uh"
+
+        cur_channel = "/messages/new/#{@current_user.target}"
 
         format.html { redirect_to @message, notice: 'Message was successfully created.' }
         format.json {
-          broadcast('/messages/new', message)
+          broadcast(cur_channel, message)
           render :show, status: :ok, location: @message
         }
       else
