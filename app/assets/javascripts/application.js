@@ -59,7 +59,7 @@ $(function() {
   }
 
   var faye = new Faye.Client(window.location.protocol + "//" + window.location.hostname + port + '/faye');
-  faye.subscribe_to(curChannel, function (data) {
+  faye.subscribe(curChannel, function (data) {
     app.messages.add(data);
   });
 
