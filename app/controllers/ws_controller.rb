@@ -1,4 +1,4 @@
-class WsController < WebsocketRails::BaseController
+class WsController < FayeRails::Controller
 
   before_action :fetch_user
 
