@@ -11,9 +11,15 @@ app.MessageView = Backbone.View.extend({
         console.log(this.model);
         console.log(name);
         console.log(time);
-
-        this.$el.text( name + " : " + messageContent + " / " + time );
-        this.$el.prependTo( "#messages" );
+        
+        if ( this.model.get("image") ) {
+          var imageURI = this.model.get("image");
+          this.$el.html( name + " : " + messageContent + " / " + time + '<img src="'+imageURI+'"/>' );
+          this.$el.prependTo( "#messages" );
+        } else {
+          this.$el.html( name + " : " + messageContent + " / " + time );
+          this.$el.prependTo( "#messages" );
+        }
       }
     }
   }

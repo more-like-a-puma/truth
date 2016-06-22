@@ -18,6 +18,29 @@
 
 </script>
 
+<div id="my_camera" style="width:320px; height:240px;"></div>
+<div id="my_result"></div>
+
+<script>
+Webcam.set({
+      dest_width: 133,
+      dest_height: 100,
+  });
+
+  Webcam.attach( '#my_camera' )
+  $('#my_camera').css("display", "none")
+
+  function take_snapshot() {
+    var image = ""
+    Webcam.snap( function(data_uri) {
+      console.log(data_uri);
+      // $("#my_result").html('<img src="'+data_uri+'"/>');
+      image = data_uri;
+    } );
+    return image
+  }
+</script>
+
 <input type="hidden" id="user_name" value="<%= @current_user.name %>">
 <input type="hidden" id="user_id" value="<%= @current_user.id %>">
 <input type="hidden" id="user_target" value="<%= @current_user.target %>">

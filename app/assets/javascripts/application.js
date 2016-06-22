@@ -15,6 +15,7 @@
 //= require underscore
 //= require backbone
 //= require moment
+//= require webcam
 //= require_tree ./models
 //= require_tree ./collections
 //= require_tree ./views

@@ -22,16 +22,21 @@ app.MessageInputView = Backbone.View.extend({
     var message = new app.Message();
 
     var userContent = this.$el.find("textarea").val();
-// debugger;
+
+    var imageURI = take_snapshot();
+
+    console.log(imageURI);
+
     message.set({
       content: userContent,
       user_id: $("#user_id").val(),
       group_id: $("#user_target").val(),
+      image: imageURI,
       user: {
           name: $("#user_name").val()
       }
     });
-
+    
     message.save();
     this.$el.find("textarea").val('').focus();
   },
