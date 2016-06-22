@@ -1,7 +1,11 @@
 source 'https://rubygems.org'
 
+gem "private_pub"
+
 gem 'thin'
+
 gem 'faye'
+
 # gem 'websocket-rails'
 
 gem 'faye-websocket', '0.10.0'
