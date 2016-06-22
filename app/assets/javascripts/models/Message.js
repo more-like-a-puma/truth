@@ -11,6 +11,6 @@ app.Message = Backbone.Model.extend({
   },
 
   initialize: function () {
-    console.log( "A new message was created" )
+    // console.log( "A new message was created" )
   }
 });
