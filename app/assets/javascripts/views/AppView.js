@@ -4,7 +4,7 @@ app.AppView = Backbone.View.extend({
   el: "#main",
 
   render: function () {
-    console.log( "App view rendering" );
+    // console.log( "App view rendering" );
     var appViewTemplate = $("#appViewTemplate").html();
       this.$el.html( appViewTemplate );
 
