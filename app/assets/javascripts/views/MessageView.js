@@ -10,7 +10,7 @@ app.MessageView = Backbone.View.extend({
         var name = this.model.get("user").name;
 
         var id = this.model.get("user_id");
-        var time = moment( this.model.get("created_at") ).fromNow('LT');
+        var time = moment( this.model.get("created_at") ).format('LT');
         console.log(this.model);
         console.log(name);
         console.log(time);
