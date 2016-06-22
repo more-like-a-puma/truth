@@ -14,6 +14,7 @@ app.MessageInputView = Backbone.View.extend({
     if (event.which === app.ENTER_KEY) {
       event.preventDefault();
       this.createMessage();
+      $('html, body').animate({scrollTop: $(document).height()}, 'slow');
     }
   },
 
@@ -36,7 +37,7 @@ app.MessageInputView = Backbone.View.extend({
           name: $("#user_name").val()
       }
     });
-    
+
     message.save();
     this.$el.find("textarea").val('').focus();
   },
@@ -46,6 +47,7 @@ app.MessageInputView = Backbone.View.extend({
     var messageInputViewTemplate = $("#messageInputViewTemplate").html();
 
     this.$el.html( messageInputViewTemplate );
+
   }
 
 });

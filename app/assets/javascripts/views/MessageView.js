@@ -29,8 +29,6 @@ app.MessageView = Backbone.View.extend({
           this.$el.html( name + " : " + messageContent + " / " + time );
           this.$el.prependTo( "#messages" );
         }
-
-
       }
     }
   }

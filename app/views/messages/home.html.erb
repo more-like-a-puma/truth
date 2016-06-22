@@ -31,7 +31,7 @@
     <ul id="messages">
       <li class="yours"><img class="thumb" src="http://www.fillmurray.com/100/100"><div class="content"><div class="round blue lighten-3">SUP</div></div></li>
       <li class="yours"><img class="thumb" src="http://www.fillmurray.com/100/100"><div class="content"><div class="round blue lighten-3">PHIIIIIIL</div></div></li>
-      <li class="others"><img class="thumb" src="http://www.fillmurray.com/100/100"><div class="content grey lighten-2">NED?!</div></li>
+      <li class="others"><img class="thumb" src="http://www.fillmurray.com/100/100"><div class="content"><div class="round grey lighten-2">NED?!</div></li>
     </ul>
     <div id="messageForm">
     </div>
@@ -67,6 +67,13 @@ Webcam.set({
     } );
     return image
   }
+  $(document).ready(function() {
+    setTimeout(function() {
+      $('html, body').animate({scrollTop: $(document).height()}, 'slow');
+    }, 1000)
+
+  })
+
 </script>
 
 <input type="hidden" id="user_name" value="<%= @current_user.name %>">
