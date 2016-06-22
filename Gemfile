@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 gem 'thin'
 gem 'faye'
-gem 'websocket-rails'
+# gem 'websocket-rails'
 
 gem 'faye-websocket', '0.10.0'
 
