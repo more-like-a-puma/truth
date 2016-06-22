@@ -9,9 +9,9 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <% if @current_user %>
+  <!-- <% if @current_user %>
     <p>Signed in as <span id="name"><%= @current_user.name %> </span><%= link_to "(logout)", logout_path, :method => :delete %></p>
-  <% end %>
+  <% end %> -->
 
 <%= yield %>
 
