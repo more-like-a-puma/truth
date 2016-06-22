@@ -22,6 +22,7 @@
 //= require_tree ./routers
 //= require_tree .
 //= require init.js
+// require private_pub
 
 $(function() {
 
