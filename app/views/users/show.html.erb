@@ -11,24 +11,10 @@
 </p>
 
 <p>
-  <strong>Password digest:</strong>
-  <%= @user.password_digest %>
-</p>
-
-<p>
-  <strong>Admin:</strong>
-  <%= @user.admin %>
-</p>
-
-<p>
   <strong>Image:</strong>
   <%= @user.image %>
 </p>
 
-<p>
-  <strong>Target:</strong>
-  <%= @user.target %>
-</p>
 
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>

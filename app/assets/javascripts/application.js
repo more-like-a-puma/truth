@@ -23,6 +23,21 @@
 //= require websocket_rails/main
 
 $(function() {
+  var dayFun = function () {
+    var day = moment().format('dddd');
+    $("#dayName").text(day);
+  };
+
+  var dateFun = function () {
+    var date = moment().format("MMM Do");
+    $("#dayDate").text(date);
+  };
+
+  var timeFun = function () {
+    var timeYo = moment().format('h:mm a');
+    $("#timeYo").val(timeYo);
+  };
+
   var userTarget = $("#user_target").val()
   var curChannel = '/messages/new/' + userTarget
 
