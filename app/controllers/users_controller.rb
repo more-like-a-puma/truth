@@ -48,10 +48,6 @@ class UsersController < ApplicationController
     respond_to do |format|
       if @user.save
         session[:user_id] = @user.id
-        new_user = {id: @user.id,
-                    name: @user.name[0],
-                    image: @user.image}
-        WebsocketRails[:user_create].trigger('created_user', new_user)
         format.html { redirect_to @user, notice: 'User was successfully created.' }
         format.json { render :show, status: :created, location: @user }
       else
