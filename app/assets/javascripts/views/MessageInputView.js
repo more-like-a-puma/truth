@@ -18,7 +18,7 @@ app.MessageInputView = Backbone.View.extend({
   },
 
   createMessage: function () {
-    console.log( "A message should be created" );
+    // console.log( "A message should be created" );
     var message = new app.Message();
 
     var userContent = this.$el.find("textarea").val();

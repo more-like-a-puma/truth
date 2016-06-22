@@ -2,13 +2,41 @@
   TRUTH
 </div>
 <script id="appViewTemplate" type="html/template">
-  <h1>Truth</h1>
-
-  <div id="messageForm">
+  <div id="slide-out" class="side-nav indigo darken-1 fixed">
+    <a href="#" class="button-collapse show-on-large"><i class="material-icons">settings_ethernet</i></a>
+    <h1 class="indigo-text text-lighten-5 center">Truth</h1>
+    <div id="dateTime">
+      <div id="timeYo" class="indigo-text text-lighten-5">13:01</div>
+      <div id="date">
+        <h5 id="dayName" class="indigo-text text-lighten-3">Wednesday</h5>
+        <h5 id="dayDate" class="indigo-text text-lighten-5">22 June</h5>
+      </div>
+    </div>
+    <ul class="groups">
+      <li><a href="#!"><i class="material-icons right">person_pin</i>Profile</a></li>
+      <ul class="dropdown"><a href="#!"><i class="material-icons right">loyalty</i>Groups</a>
+        <% if @groups %>
+          <% @groups.each do |g| %>
+          <li>
+            <%= link_to g.title, user_path(@current_user, :user => {:target => g.id}), :method => :put %>
+          </li>
+          <% end %>
+        <% end %>
+      </ul>
+      <li><a href="/logout" data-method="delete"><i class="material-icons right">power_settings_new</i>Log Out</a></li>
+    </ul>
   </div>
 
-  <ul id="messages">
-  </ul>
+  <div id="chat" class="col s12">
+    <ul id="messages">
+      <li class="yours"><img class="thumb" src="http://www.fillmurray.com/100/100"><div class="content"><div class="round blue lighten-3">SUP</div></div></li>
+      <li class="yours"><img class="thumb" src="http://www.fillmurray.com/100/100"><div class="content"><div class="round blue lighten-3">PHIIIIIIL</div></div></li>
+      <li class="others"><img class="thumb" src="http://www.fillmurray.com/100/100"><div class="content grey lighten-2">NED?!</div></li>
+    </ul>
+    <div id="messageForm">
+    </div>
+  </div>
+
 </script>
 
 <script id="messageInputViewTemplate" type="html/template">

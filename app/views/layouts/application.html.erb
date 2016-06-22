@@ -4,18 +4,14 @@
   <title>Truth</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'http://localhost:9292/faye.js', 'data-turbolinks-track' => true %>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700' rel='stylesheet' type='text/css'>
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <% if @current_user %>
+  <!-- <% if @current_user %>
     <p>Signed in as <span id="name"><%= @current_user.name %> </span><%= link_to "(logout)", logout_path, :method => :delete %></p>
-  <% end %>
-
-  <% if @groups %>
-    <% @groups.each do |g| %>
-      <%= link_to g.title, user_path(@current_user, :user => {:target => g.id}), :method => :put %>
-    <% end %>
-  <% end %>
+  <% end %> -->
 
 <%= yield %>
 

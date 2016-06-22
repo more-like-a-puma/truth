@@ -21,14 +21,107 @@
 //= require_tree ./views
 //= require_tree ./routers
 //= require_tree .
-//= require websocket_rails/main
+//= require init.js
 
 $(function() {
+
+
+  var dayFun = function () {
+    var day = moment(Date.now()).format('dddd');
+    $("#dayName").text(day);
+  };
+
+  var dateFun = function () {
+    var date = moment(Date.now()).format("MMM Do");
+    $("#dayDate").text(date);
+  };
+
+  var timeFun = function () {
+    var timeYo = moment(Date.now()).format('H:mm');
+    $("#timeYo").html(timeYo);
+  };
+
+  var updateTime = function () {
+    timeFun();
+    dayFun();
+    dateFun();
+  }
+
+  window.setInterval(updateTime, 100);
+
+
   var userTarget = $("#user_target").val()
   var curChannel = '/messages/new/' + userTarget
 
-  var faye = new Faye.Client('http://localhost:9292/faye');
+  if ( window.location.port === "3000" ) {
+    var port = ":9292";
+  }
+
+  var faye = new Faye.Client(window.location.protocol + "//" + window.location.hostname + port + '/faye');
   faye.subscribe(curChannel, function (data) {
     app.messages.add(data);
+  });
+
+  $('.button-collapse').sideNav('show');
+  // Hide sideNav
+  $('.button-collapse').sideNav('hide');
+
+  var navOut = false;
+
+  $('.button-collapse').on("click", function() {
+    console.log("hi");
+    if (navOut === false) {
+      $("#chat").animate({
+        'padding-left': "80px"
+      });
+      $("#slide-out").animate({
+        left: "-320px"
+      })
+      navOut = true;
+    } else {
+      $("#chat").animate({
+        'padding-left': "400px"
+      });
+      $("#slide-out").animate({
+        left: "0px"
+      })
+      navOut = false;
+
+    }
+  });
+
+  var drop = true;
+
+  $(".dropdown a").on("click", function() {
+    if (drop) {
+      $(".dropdown li").fadeOut()
+      drop = false;
+    } else {
+      $(".dropdown li").fadeIn()
+      drop = true;
+    }
+  })
+
+  var rightNavOut = false;
+
+  $('.right-button-collapse').on("click", function() {
+    if (rightNavOut === false) {
+      $("#chat").animate({
+        'padding-right': "0px"
+      });
+      $("#right-slide-out").animate({
+        right: "-300px"
+      })
+      rightNavOut = true;
+    } else {
+      $("#chat").animate({
+        'padding-right': "300px"
+      });
+      $("#right-slide-out").animate({
+        right: "0px"
+      })
+      rightNavOut = false;
+
+    }
   });
 });
