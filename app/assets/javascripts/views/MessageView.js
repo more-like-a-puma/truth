@@ -7,7 +7,7 @@ app.MessageView = Backbone.View.extend({
       if ( this.model.get("group_id") == $("#user_target").val() ) {
         var messageContent = this.model.get("content");
         var name = this.model.get("user").name;
-        var time = moment( this.model.get("created_at") ).fromNow('LT');
+        var time = moment( this.model.get("created_at") ).format('LT');
         console.log(this.model);
         console.log(name);
         console.log(time);
