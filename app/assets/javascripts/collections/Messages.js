@@ -12,10 +12,11 @@ app.Messages = Backbone.Collection.extend({
     this.on("add", function (message) {
       if ( !message.toJSON().user ) { debugger; }
       console.log( message.toJSON().user );
-      var messageView = new app.MessageView({
+      messageView = new app.MessageView({
           model: message
       });
       messageView.render();
     });
+
   }
 });
