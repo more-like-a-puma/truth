@@ -2,8 +2,9 @@ var app = app || {};
 
 app.MessageView = Backbone.View.extend({
   tagName: 'li',
-  render: function (counter) {
+  render: function () {
     if ( this.model.get("user") ) {
+
       if ( this.model.get("group_id") == $("#user_target").val() ) {
         var messageContent = this.model.get("content");
         var name = this.model.get("user").name;

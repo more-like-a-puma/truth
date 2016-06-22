@@ -9,7 +9,7 @@
 
 User.destroy_all
 
-u1 = User.create :name => 'Small Jess', :email => 'jess@ga.co', :password => 'chicken', :password_confirmation => 'chicken', :admin => true
+u1 = User.create :name => 'Small Jess', :email => 'jess@ga.co', :password => 'chicken', :password_confirmation => 'chicken', :admin => true, :target => 1
 
 u2 = User.create :name => 'boz', :email => 'boz@ga.co', :password => 'chicken', :password_confirmation => 'chicken', :admin => true
 
