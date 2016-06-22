@@ -36,7 +36,7 @@ $(function() {
   };
 
   var timeFun = function () {
-    var timeYo = moment(Date.now()).format('h:mm a');
+    var timeYo = moment(Date.now()).format('H:mm');
     $("#timeYo").html(timeYo);
   };
 
