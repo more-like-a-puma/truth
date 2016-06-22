@@ -21,6 +21,7 @@
 //= require_tree ./routers
 //= require_tree .
 //= require init.js
+// require private_pub
 
 $(function() {
 
@@ -57,7 +58,7 @@ $(function() {
   }
 
   var faye = new Faye.Client(window.location.protocol + "//" + window.location.hostname + port + '/faye');
-  faye.subscribe(curChannel, function (data) {
+  faye.subscribe_to(curChannel, function (data) {
     app.messages.add(data);
   });
 
