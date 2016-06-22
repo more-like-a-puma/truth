@@ -10,5 +10,6 @@ app.AppView = Backbone.View.extend({
 
     var messageInputView = new app.MessageInputView();
     messageInputView.render();
+
   }
 });
