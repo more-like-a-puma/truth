@@ -7,7 +7,7 @@ app.AppRouter = Backbone.Router.extend({
   },
 
   index: function () {
-    console.log( "Empty client-side URL, index method has run" );
+    // console.log( "Empty client-side URL, index method has run" );
     var appView = new app.AppView();
     appView.render();
   }
