@@ -20,29 +20,43 @@
 //= require_tree ./views
 //= require_tree ./routers
 //= require_tree .
-//= require websocket_rails/main
 //= require init.js
 
 $(function() {
+
+
   var dayFun = function () {
-    var day = moment().format('dddd');
+    var day = moment(Date.now()).format('dddd');
     $("#dayName").text(day);
   };
 
   var dateFun = function () {
-    var date = moment().format("MMM Do");
+    var date = moment(Date.now()).format("MMM Do");
     $("#dayDate").text(date);
   };
 
   var timeFun = function () {
-    var timeYo = moment().format('h:mm a');
-    $("#timeYo").val(timeYo);
+    var timeYo = moment(Date.now()).format('h:mm:ss a');
+    $("#timeYo").html(timeYo);
   };
+
+  var updateTime = function () {
+    timeFun();
+    dayFun();
+    dateFun();
+  }
+
+  window.setInterval(updateTime, 100);
+
 
   var userTarget = $("#user_target").val()
   var curChannel = '/messages/new/' + userTarget
 
-  var faye = new Faye.Client('http://localhost:9292/faye');
+  if ( window.location.port === "3000" ) {
+    var port = ":9292";
+  }
+
+  var faye = new Faye.Client(window.location.protocol + "//" + window.location.hostname + port + '/faye');
   faye.subscribe(curChannel, function (data) {
     app.messages.add(data);
   });

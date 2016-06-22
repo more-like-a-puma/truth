@@ -12,9 +12,9 @@ config.middleware.use FayeRails::Middleware, mount: '/faye', :timeout => 25 do
   #   end
   # The above will handle an event triggered on the client like `product.new`.
 
-  subscribe :login, 'ws#inital_transmit'
-  subscribe :client_disconnected, 'ws#goodbye'
-  subscribe :connection_closed, 'ws#goodbye'
-  subscribe :new_message, 'ws#create_message'
-  subscribe :mark_as_read, 'ws#mark_as_read'
+  # subscribe :login, 'ws#inital_transmit'
+  # subscribe :client_disconnected, 'ws#goodbye'
+  # subscribe :connection_closed, 'ws#goodbye'
+  # subscribe :new_message, 'ws#create_message'
+  # subscribe :mark_as_read, 'ws#mark_as_read'
 end
