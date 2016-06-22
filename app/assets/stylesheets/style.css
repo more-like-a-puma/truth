@@ -1,0 +1,157 @@
+.side-nav {
+  width: 400px;
+}
+
+.side-nav.fixed {
+  overflow: scroll;
+}
+
+.side-nav.fixed ul li a {
+  color: #e8eaf6;
+}
+
+.button-collapse {
+  display: inline !important;
+  position: absolute;
+  right: 0;
+  margin-top: 29px;
+  padding-top: 7px !important;
+}
+
+.button-collapse i {
+  color: #e8eaf6;
+}
+
+#chat {
+  height: 100vh;
+  padding-left: 400px;
+  padding-right: 300px;
+}
+
+i.right {
+  line-height: 60px;
+}
+
+.side-nav.fixed ul.dropdown a {
+  color: #e8eaf6;
+}
+
+.side-nav.fixed ul ul.dropdown li a {
+  color: #9fa8da;
+  margin-left: 60px;
+}
+
+
+.right-side-nav {
+  width: 300px;
+  right: 0;
+  top: 0;
+  height: 100vh;
+}
+
+.right-side-nav.fixed {
+  overflow: visible;
+  position: fixed;
+}
+
+.right-side-nav.fixed ul li a {
+  color: #e8eaf6;
+}
+
+.right-button-collapse {
+  display: inline !important;
+  position: absolute;
+  left: -84px;
+  margin-top: 16px;
+  padding-top: 7px !important;
+}
+
+h1 {
+  font-weight: 100;
+  margin-bottom: 50px;
+}
+
+h5 {
+  font-weight: 300;
+  margin: 0;
+  font-size: 19px;
+}
+
+.groups {
+  margin-top: 30px;
+}
+
+#messages {
+  height: 100vh;
+  display: flex;
+  flex-flow: column-reverse wrap;
+  margin: 0;
+}
+
+#messages li {
+  height: 100px;
+  line-height: 100px;
+  margin-top: 2px;
+}
+
+.yours {
+  margin-left: 52%;
+  border-radius: 5px 0 0 5px;
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.others {
+  margin-right: 52%;
+  border-radius: 0 5px 5px 0;
+  display: flex;
+  flex-direction: row;
+}
+
+.thumb {
+  border-radius: 5px;
+}
+
+.content {
+  flex-grow: 2;
+  margin: auto 2px;
+  border-radius: 5px;
+  padding-right: 15px;
+  background-image: url("arrow2.png");
+  background-size: 15px;
+  background-position: right center;
+  background-repeat: no-repeat;
+}
+
+.round {
+  border-radius: 5px;
+  padding: 0 10px;
+}
+
+#dateTime {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+#date {
+  flex-grow: 1;
+  align-content: center;
+  margin-top: -3px;
+}
+
+#timeYo {
+  flex-grow: 1;
+  font-size: 48px;
+  font-weight: 300;
+  text-align: right;
+  align-self: center;
+}
+
+#dayName {
+  align-self: center;
+}
+
+#dayDate {
+  align-self: center;
+}

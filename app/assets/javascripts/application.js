@@ -21,6 +21,7 @@
 //= require_tree ./routers
 //= require_tree .
 //= require websocket_rails/main
+//= require init.js
 
 $(function() {
   var dayFun = function () {
