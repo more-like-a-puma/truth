@@ -77,62 +77,46 @@ $(function() {
   // Hide sideNav
   $('.button-collapse').sideNav('hide');
 
-  var navOut = false;
+  var navOut = true;
 
   $('.button-collapse').on("click", function() {
-    console.log("hi");
+
     if (navOut === false) {
-      $("#chat").animate({
-        'padding-left': "80px"
-      });
-      $("#slide-out").animate({
-        left: "-320px"
-      })
+      $("#chat").removeClass("chatSlide");
+      $("#slide-out").removeClass("slideIn");
       navOut = true;
     } else {
-      $("#chat").animate({
-        'padding-left': "400px"
-      });
-      $("#slide-out").animate({
-        left: "0px"
-      })
+      $("#slide-out").addClass("slideIn");
+      $("#chat").addClass("chatSlide");
       navOut = false;
-
     }
   });
 
   var drop = true;
 
-  $(".dropdown a").on("click", function() {
+  $("#dropdown-parent").on("click", function(e) {
+    e.preventDefault();
     if (drop) {
-      $(".dropdown li").fadeOut()
+      $(".dropdown").slideUp()
       drop = false;
     } else {
-      $(".dropdown li").fadeIn()
+      $(".dropdown").slideDown()
       drop = true;
     }
   })
 
-  var rightNavOut = false;
+  var rightNavOut = true;
 
   $('.right-button-collapse').on("click", function() {
     if (rightNavOut === false) {
-      $("#chat").animate({
-        'padding-right': "0px"
-      });
-      $("#right-slide-out").animate({
-        right: "-300px"
-      })
+      $("#chat").removeClass("chatSlideRight");
+      $("#right-slide-out").removeClass("rightSlideIn");
       rightNavOut = true;
     } else {
-      $("#chat").animate({
-        'padding-right': "300px"
-      });
-      $("#right-slide-out").animate({
-        right: "0px"
-      })
+      $("#chat").addClass("chatSlideRight");
+      $("#right-slide-out").addClass("rightSlideIn");
       rightNavOut = false;
-
     }
   });
+
 });

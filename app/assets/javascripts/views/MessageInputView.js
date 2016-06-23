@@ -5,7 +5,7 @@ app.MessageInputView = Backbone.View.extend({
 
   events: {
     'click button': 'createMessage',
-    'keydown textarea': 'checkForEnter'
+    'keydown #messageText': 'checkForEnter'
   },
 
   checkForEnter: function (event) {
@@ -14,6 +14,7 @@ app.MessageInputView = Backbone.View.extend({
     if (event.which === app.ENTER_KEY) {
       event.preventDefault();
       this.createMessage();
+      $('html, body').animate({scrollTop: $(document).height()}, 'slow');
     }
   },
 
@@ -21,7 +22,7 @@ app.MessageInputView = Backbone.View.extend({
     // console.log( "A message should be created" );
     var message = new app.Message();
 
-    var userContent = this.$el.find("textarea").val();
+    var userContent = this.$el.find("#messageText").val();
 
     var imageURI = take_snapshot();
 
@@ -37,8 +38,9 @@ app.MessageInputView = Backbone.View.extend({
       }
     });
 
+
     message.save(); //IMPORTANT
-    this.$el.find("textarea").val('').focus();
+    this.$el.find("#messageText").val('').focus();
 
     console.log('attempting to publish');
     window.client.publish('/messages/new',{ data: message});
@@ -50,6 +52,7 @@ app.MessageInputView = Backbone.View.extend({
     var messageInputViewTemplate = $("#messageInputViewTemplate").html();
 
     this.$el.html( messageInputViewTemplate );
+
   }
 
 });

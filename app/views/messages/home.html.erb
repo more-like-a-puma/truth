@@ -4,7 +4,7 @@
 <script id="appViewTemplate" type="html/template">
   <div id="slide-out" class="side-nav indigo darken-1 fixed">
     <a href="#" class="button-collapse show-on-large"><i class="material-icons">settings_ethernet</i></a>
-    <h1 class="indigo-text text-lighten-5 center">Truth</h1>
+    <h1 class="indigo-text text-lighten-5">Truth</h1>
     <div id="dateTime">
       <div id="timeYo" class="indigo-text text-lighten-5">13:01</div>
       <div id="date">
@@ -13,8 +13,9 @@
       </div>
     </div>
     <ul class="groups">
-      <li><a href="#!"><i class="material-icons right">person_pin</i>Profile</a></li>
-      <ul class="dropdown"><a href="#"><i class="material-icons right">loyalty</i>Groups</a>
+      <li><a href="#"><i class="material-icons right">person_pin</i>Profile</a></li>
+      <li><a href="#" id="dropdown-parent"><i class="material-icons right">loyalty</i>Groups</a>
+      <ul class="dropdown">
         <% if @groups %>
           <% @groups.each do |g| %>
           <li>
@@ -31,18 +32,33 @@
     <ul id="messages">
       <li class="yours"><img class="thumb" src="http://www.fillmurray.com/100/100"><div class="content"><div class="round blue lighten-3">SUP</div></div></li>
       <li class="yours"><img class="thumb" src="http://www.fillmurray.com/100/100"><div class="content"><div class="round blue lighten-3">PHIIIIIIL</div></div></li>
-      <li class="others"><img class="thumb" src="http://www.fillmurray.com/100/100"><div class="content grey lighten-2">NED?!</div></li>
+      <li class="others"><img class="thumb" src="http://www.fillmurray.com/100/100"><div class="content"><div class="round grey lighten-2">NED?!</div></li>
     </ul>
     <div id="messageForm">
     </div>
   </div>
 
+  <div id="right-slide-out" class="right-side-nav indigo lighten-5 fixed">
+    <a href="#" class="right-button-collapse show-on-large"><i class="material-icons indigo-text">contacts</i></a>
+    <h4 class="indigo-text">Users</h4>
+    <ul>
+      <li>Jess</li>
+      <li>Jess</li>
+      <li>jeSS</li>
+      <li>Jes?S</li>
+    </ul>
+  </div>
+
 </script>
 
 <script id="messageInputViewTemplate" type="html/template">
-  <textarea placeholder="Write A Message ..."></textarea>
-  <hr>
-  <button>Submit</button>
+  <div class="input-field col s12">
+    <input id="messageText" type="text">
+    <label for="messageText">Write your message...</label>
+  </div>
+  <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+    <i class="material-icons right">send</i>
+  </button>
 
 </script>
 
@@ -67,6 +83,13 @@ Webcam.set({
     } );
     return image
   }
+  $(document).ready(function() {
+    setTimeout(function() {
+      $('html, body').animate({scrollTop: $(document).height()}, 'slow');
+    }, 1000)
+
+  })
+
 </script>
 
 <input type="hidden" id="user_name" value="<%= @current_user.name %>">
