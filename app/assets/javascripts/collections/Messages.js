@@ -17,6 +17,7 @@ app.Messages = Backbone.Collection.extend({
           model: message
       });
       messageView.render();
+      $('html, body').stop().animate({scrollTop: $(document).height()}, 'slow');
     });
 
   }
