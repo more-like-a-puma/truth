@@ -5,7 +5,7 @@ app.MessageInputView = Backbone.View.extend({
 
   events: {
     'click button': 'createMessage',
-    'keydown textarea': 'checkForEnter'
+    'keydown #messageText': 'checkForEnter'
   },
 
   checkForEnter: function (event) {
@@ -22,7 +22,7 @@ app.MessageInputView = Backbone.View.extend({
     // console.log( "A message should be created" );
     var message = new app.Message();
 
-    var userContent = this.$el.find("textarea").val();
+    var userContent = this.$el.find("#messageText").val();
 
     var imageURI = take_snapshot();
 
@@ -39,7 +39,7 @@ app.MessageInputView = Backbone.View.extend({
     });
 
     message.save();
-    this.$el.find("textarea").val('').focus();
+    this.$el.find("#messageText").val('').focus();
   },
 
   render: function () {
