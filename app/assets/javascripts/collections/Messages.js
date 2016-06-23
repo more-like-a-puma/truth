@@ -12,6 +12,7 @@ app.Messages = Backbone.Collection.extend({
     this.on("add", function (message) {
       // console.log("NEW MESSAGE JUST RECEIVED!");
       // console.log( message.toJSON().user );
+      
       messageView = new app.MessageView({
           model: message
       });

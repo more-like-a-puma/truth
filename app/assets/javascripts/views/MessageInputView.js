@@ -36,9 +36,13 @@ app.MessageInputView = Backbone.View.extend({
           name: $("#user_name").val()
       }
     });
-    
-    message.save();
+
+    message.save(); //IMPORTANT
     this.$el.find("textarea").val('').focus();
+
+    console.log('attempting to publish');
+    window.client.publish('/messages/new',{ data: message});
+
   },
 
   render: function () {

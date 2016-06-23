@@ -5,7 +5,7 @@ gem "private_pub"
 gem 'thin'
 
 gem 'faye'
-
+gem 'faye-rails', '~> 2.0'
 # gem 'websocket-rails'
 
 gem 'faye-websocket', '0.10.0'

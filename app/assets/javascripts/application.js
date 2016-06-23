@@ -20,9 +20,20 @@
 //= require_tree ./collections
 //= require_tree ./views
 //= require_tree ./routers
+//= require faye
 //= require_tree .
 //= require init.js
 // require private_pub
+
+console.log('checking if faye is wokring');
+console.log(Faye);
+
+window.client = new Faye.Client('/faye');
+
+window.client.subscribe('/messages/new', function (data) {
+  console.log(data);
+  app.messages.add(data.data);
+});
 
 $(function() {
 
@@ -53,15 +64,14 @@ $(function() {
 
   var userTarget = $("#user_target").val()
   var curChannel = '/messages/new/' + userTarget
+  console.log(curChannel);
 
-  if ( window.location.port === "3000" ) {
-    var port = ":9292";
-  }
 
-  var faye = new Faye.Client(window.location.protocol + "//" + window.location.hostname + port + '/faye');
-  faye.subscribe(curChannel, function (data) {
-    app.messages.add(data);
+  window.client.subscribe(curChannel, function (data) {
+    app.messages.add(data); //IMPORTANT
   });
+
+
 
   $('.button-collapse').sideNav('show');
   // Hide sideNav
