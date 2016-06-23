@@ -1,19 +1,37 @@
-<h2>Login</h2>
-<% if @current_user %>
-  <p>You are already logged in...</p>
-<% else %>
-  <%= form_tag login_path do %>
-    <p>
-      <%= label_tag :email %>
-      <%= email_field_tag :email %>
-    </p>
+<div class="container">
+  <div class="section">
 
-    <p>
-      <%= label_tag :password %>
-      <%= password_field_tag :password %>
-    </p>
+    <!--   Icon Section   -->
+    <div class="row">
+      <div class="col s12">
+          <h1 class="center indigo-text">Truth</h1>
 
-    <%= submit_tag "Login" %>
+          <% if @current_user %>
+            <p>You are already logged in...</p>
+          <% else %>
+            <%= form_tag login_path do %>
+              <div class="input-field col s8 offset-s2">
+                <%= label_tag :email %>
+                <%= email_field_tag :email %>
+              </div>
 
-  <% end %>
-<% end %>
+              <div class="input-field col s8 offset-s2">
+                <%= label_tag :password %>
+                <%= password_field_tag :password %>
+              </div>
+
+              <div class="input-field col s8 offset-s2">
+
+                <%= submit_tag "Login", class: "waves-effect waves-light btn light-blue" %>
+                <%= link_to "Sign Up", logout_path, class: "waves-effect waves-light btn indigo" %>
+
+              </div>
+
+            <% end %>
+          <% end %>
+
+      </div>
+    </div>
+
+  </div>
+</div>
