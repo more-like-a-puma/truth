@@ -1,7 +1,7 @@
 var app = app || {};
 
 app.Message = Backbone.Model.extend({
-  urlRoot: "/messages", //IMPORTANT
+  urlRoot: "/", //IMPORTANT
 
   defaults: {
     user_id: "",
