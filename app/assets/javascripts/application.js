@@ -106,7 +106,6 @@ $(function() {
       $("#chat").addClass("chatSlideRight");
       $("#right-slide-out").addClass("rightSlideIn");
       rightNavOut = false;
-
     }
   });
 
