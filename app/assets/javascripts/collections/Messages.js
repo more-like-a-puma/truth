@@ -2,7 +2,7 @@ var app = app || {};
 
 app.Messages = Backbone.Collection.extend({
 
-  url: "/",
+  url: "/messages",
 
   model: app.Message,
 
