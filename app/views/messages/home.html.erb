@@ -13,8 +13,9 @@
       </div>
     </div>
     <ul class="groups">
-      <li><a href="#"><i class="material-icons right">person_pin</i>Profile</a></li>
-      <li><a href="#" id="dropdown-parent"><i class="material-icons right">loyalty</i>Groups</a>
+      <li><%= link_to "Profile", @current_user %><i class="material-icons right">person_pin</i></li>
+      <li><a href="/groups/new"><i class="material-icons right">loyalty</i>New Group</a></li>
+      <li><a href="#" id="dropdown-parent"><i class="material-icons right">loyalty</i>Groups</a></li>
       <ul class="dropdown">
         <% if @groups %>
           <% @groups.each do |g| %>
