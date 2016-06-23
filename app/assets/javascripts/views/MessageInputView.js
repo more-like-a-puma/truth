@@ -11,7 +11,7 @@ app.MessageInputView = Backbone.View.extend({
   checkForEnter: function (event) {
     // checking to see if the ENTER button was pressed
     app.ENTER_KEY = 13;
-    app.BACKSPACE_KEY = 8
+    app.BACKSPACE_KEY = 8;
     if (event.which === app.ENTER_KEY || event.which === app.BACKSPACE_KEY) {
       event.preventDefault();
       this.createMessage();
