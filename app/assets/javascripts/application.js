@@ -25,8 +25,8 @@
 //= require init.js
 // require private_pub
 
-console.log('checking if faye is wokring');
-console.log(Faye);
+// console.log('checking if faye is wokring');
+// console.log(Faye);
 
 window.client = new Faye.Client('/faye');
 
@@ -36,6 +36,22 @@ window.client.subscribe('/messages/new', function (data) {
 });
 
 $(function() {
+
+  var listingAllUsers = function (data) {
+    $("#listOfUsers").html("")
+    _.each(data, function (u) {
+      var $li = $("<li></li>")
+      $li.text(u.name)
+      $("#listOfUsers").append($li)
+    })
+  }
+
+  var userFun = function () {
+    $.ajax({
+      url: "/users.json",
+      type: "GET"
+    }).done( listingAllUsers );
+  };
 
 
   var dayFun = function () {
@@ -57,6 +73,7 @@ $(function() {
     timeFun();
     dayFun();
     dateFun();
+    userFun();
   }
 
   window.setInterval(updateTime, 100);
@@ -64,7 +81,7 @@ $(function() {
 
   var userTarget = $("#user_target").val()
   var curChannel = '/messages/new/' + userTarget
-  console.log(curChannel);
+  // console.log(curChannel);
 
 
   window.client.subscribe(curChannel, function (data) {

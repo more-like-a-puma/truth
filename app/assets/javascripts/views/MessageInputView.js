@@ -43,8 +43,8 @@ app.MessageInputView = Backbone.View.extend({
     message.save(); //IMPORTANT
     this.$el.find("#messageText").val('').focus();
 
-    console.log('attempting to publish');
-    window.client.publish('/messages/new',{ data: message});
+    // console.log('attempting to publish');
+    window.client.publish('/messages/new',{ data: message });
 
   },
 
