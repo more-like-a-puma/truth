@@ -1,9 +1,14 @@
-<p id="notice"><%= notice %></p>
+<div class="row">
+  <div class="col s8 offset-s2">
 
-<p>
-  <strong>Title:</strong>
-  <%= @group.title %>
-</p>
+  <p id="notice"><%= notice %></p>
 
-<%= link_to 'Edit', edit_group_path(@group) %> |
-<%= link_to 'Back', groups_path %>
+  <p>
+    <strong>Title:</strong>
+    <%= @group.title %>
+  </p>
+
+  <%= link_to 'Edit', edit_group_path(@group) %> |
+  <%= link_to 'Back', groups_path %>
+  </div>
+</div>

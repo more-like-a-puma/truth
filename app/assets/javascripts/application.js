@@ -35,6 +35,11 @@ window.client.subscribe('/messages/new', function (data) {
   app.messages.add(data.data);
 });
 
+window.client.subscribe('/groups/new', function (data) {
+  console.log(data);
+  app.groups.add(data.data);
+});
+
 $(function() {
 
   var listingAllUsers = function (data) {
@@ -136,5 +141,20 @@ $(function() {
       rightNavOut = false;
     }
   });
+  $("#btn-create-group").click(function() {
+    var group = new app.Group();
 
+    var groupTitle = $("#groupId").val();
+
+    group.set({
+      title: groupTitle
+    });
+
+
+    // group.save(); //IMPORTANT
+
+    // console.log('attempting to publish');
+    window.client.publish('/groups/new',{ data: group });
+    // return false;
+  });
 });

@@ -11,11 +11,16 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :title %><br>
-    <%= f.text_area :title %>
+  <div class="row">
+    <div class="input-field col s8 offset-s2">
+      <%= f.label :title %>
+      <%= f.text_field :title, id: "groupId" %>
+    </div>
   </div>
-  <div class="actions">
-    <%= f.submit %>
+  <div class="row">
+    <div class="col s8 offset-s2">
+      <%= f.submit class: 'btn waves-effect waves-light indigo', id: "btn-create-group" %>
+    </div>
   </div>
+
 <% end %>
