@@ -15,6 +15,8 @@ Thangs used:
 
 * WebcamJS
 
+* MomentJS
+
 * Backbone
 
 * Faye websockets and Faye-rails
