@@ -40,10 +40,7 @@ class MessagesController < ApplicationController
         cur_channel = "/messages/new/#{@current_user.target}"
 
         format.html { redirect_to @message, notice: 'Message was successfully created.' }
-        format.json {
-          broadcast(cur_channel, message)
-          render :show, status: :ok, location: @message
-        }
+        format.json { render :show, status: :ok, location: @message }
       else
         format.html { render :new }
         format.json { render json: @message.errors, status: :unprocessable_entity }
@@ -91,10 +88,10 @@ class MessagesController < ApplicationController
       redirect_to '/login' unless @current_user
     end
 
-    def broadcast(channel, data)
-      message = { :channel => channel, :data => data }
-      uri = URI.parse("http://localhost:9292/faye")
-
-      Net::HTTP.post_form(uri, :message => message.to_json)
-    end
+    # def broadcast(channel, data)
+    #   message = { :channel => channel, :data => data }
+    #   uri = URI.parse("http://localhost:9292/faye")
+    #
+    #   Net::HTTP.post_form(uri, :message => message.to_json)
+    # end
 end
