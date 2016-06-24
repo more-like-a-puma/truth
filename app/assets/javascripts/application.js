@@ -99,8 +99,8 @@ $(function() {
 
   var navOut = true;
 
-  $('.button-collapse').on("click", function() {
-
+  $('.button-collapse').on("click", function(e) {
+    e.preventDefault();
     if (navOut === false) {
       $("#chat").removeClass("chatSlide");
       $("#slide-out").removeClass("slideIn");
@@ -127,7 +127,8 @@ $(function() {
 
   var rightNavOut = true;
 
-  $('.right-button-collapse').on("click", function() {
+  $('.right-button-collapse').on("click", function(e) {
+    e.preventDefault();
     if (rightNavOut === false) {
       $("#chat").removeClass("chatSlideRight");
       $("#right-slide-out").removeClass("rightSlideIn");
