@@ -78,10 +78,13 @@ $(function() {
     timeFun();
     dayFun();
     dateFun();
-    userFun();
   }
 
-  window.setInterval(updateTime, 100);
+  userFun();
+  timeFun();
+
+  window.setInterval(updateTime, 59000);
+  window.setInterval(userFun, 20000);
 
 
   var userTarget = $("#user_target").val()
