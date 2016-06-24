@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   before_action :authenticate, except: [:new, :create]
   before_action :set_user, only: [:show, :edit, :update, :destroy]
   # before_action :authorise, :only => [:index]
-  before_action :logged_in, :only => [:show, :edit, :update, :destroy]
+  before_action :logged_in, :only => [:show, :edit, :new, :update, :destroy]
 
   # GET /users
   # GET /users.json
