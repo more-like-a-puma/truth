@@ -17,10 +17,10 @@ app.MessageView = Backbone.View.extend({
 
         if (id == user_id.value) {
           this.$el.addClass("yours");
-          this.$el.html( '<div class="content"><div id="messageContent" class="round blue lighten-3"></div></div>' );
+          this.$el.html( '<div class="content">' + name + ' at ' + time + '<div id="messageContent" class="round blue lighten-3">things</div></div>' );
         } else {
           this.$el.addClass("others");
-          this.$el.html( '<div class="content"><div id="messageContent" class="round grey lighten-3"></div></div>' );
+          this.$el.html( '<div class="content">' + name + ' at ' + time + '<div id="messageContent" class="round grey lighten-3"></div></div>' );
         }
 
         if ( this.model.get("image") ) {
@@ -31,8 +31,8 @@ app.MessageView = Backbone.View.extend({
           $("#messageContent").text(messageContent);
 
         } else {
-          this.$el.html( name + " : " + messageContent + " / " + time );
           this.$el.prependTo( "#messages" );
+          this.$el.prepend('<img class="thumb" src="http://fillmurray.com/133/100"/>');
           $("#messageContent").text(messageContent);
         }
       }

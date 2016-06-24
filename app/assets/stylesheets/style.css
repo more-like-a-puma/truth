@@ -159,6 +159,8 @@ h5 {
 .thumb {
   border-radius: 5px;
   height: 100%;
+  position: relative;
+  top: 11px;
 }
 
 .yours .content {
