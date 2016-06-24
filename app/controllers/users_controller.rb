@@ -1,8 +1,7 @@
 class UsersController < ApplicationController
-  before_action :authenticate, except: [:new, :create]
   before_action :set_user, only: [:show, :edit, :update, :destroy]
   # before_action :authorise, :only => [:index]
-  before_action :logged_in, :only => [:show, :edit, :new, :update, :destroy]
+  before_action :logged_in, :only => [:show, :edit, :update, :destroy]
 
   # GET /users
   # GET /users.json
@@ -109,7 +108,4 @@ class UsersController < ApplicationController
       redirect_to root_path unless @current_user.present?
     end
 
-    def authenticate
-      redirect_to '/login' unless @current_user
-    end
 end
